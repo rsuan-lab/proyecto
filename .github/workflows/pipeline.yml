@@ -29,7 +29,11 @@ jobs:
     if: github.ref == 'refs/heads/main'
     steps:
       - uses: actions/checkout@v2
-      - name: pruebas unitarias
-        run: pwd
+      - name: Correr servidor
+        run: node src/app.js
+
+      -name:  correr pruebas unitarias
+        run: npm run test
+
         
     
