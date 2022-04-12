@@ -1,33 +1,34 @@
-name: pipelinetest
+name: pipeline test
 
 on:
-push:
-branches:
-- master
-- feature/*
+  push:
+    branches:
+      - master
+      - feature/*
+    
 
 env:
-titulo: 'prueba git_flow'
-version: '1.0.0'
+  titulo: 'prueba git_flow'
+  version: '1.0.0'
+
 
 jobs:
-build:
-runs-on: ubuntu-latest
-environment: master
-steps:
-- uses: actions/checkout@v2
-- name: printhola
-run: echo 'hola
-${NAME_ENVIRONMENT}'
-env:
-NAME_ENVIRONMENT: ${{
-env.titulo }}
+  build: 
+    runs-on: ubuntu-latest
+    environment: master
+    steps: 
+      - uses: actions/checkout@v2
+      - name: printhola
+        run: echo 'hola ${NAME_ENVIRONMENT}'
+        env:
+          NAME_ENVIRONMENT: ${{ env.titulo }}
 
-unit-test:
-runs-on: ubuntu-latest
-needs: build
-if: github.ref == 'refs/heads/master'
-steps:
-- uses: actions/checkout@v2
-- name: pruebas unitarias
-run: npm run test
+  unit-test: 
+    runs-on: ubuntu-latest    
+    needs: build
+    if: github.ref == 'refs/heads/master'
+    steps:
+      - uses: actions/checkout@v2
+      - name: pruebas unitarias
+        run: npm run test
+    
