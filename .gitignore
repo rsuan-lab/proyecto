@@ -1,0 +1,8 @@
+/node_modules/
+/.idea/
+/node_modules/
+/.nyc_output/
+/build/
+/coverage/
+.DS_Store
+.GitHubDesktop-linux-2.8.1-linux2.deb
