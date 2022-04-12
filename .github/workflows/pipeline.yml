@@ -32,7 +32,7 @@ jobs:
       - name: Correr servidor
         run: node src/app.js
 
-      -name:  correr pruebas unitarias
+      - name:  correr pruebas unitarias
         run: npm run test
 
         
