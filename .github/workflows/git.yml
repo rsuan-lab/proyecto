@@ -11,9 +11,6 @@ titulo: 'prueba git_flow'
 version: '1.0.0'
 
 jobs:
-
-Full-stack Developer Challenge
-
 build:
 runs-on: ubuntu-latest
 environment: master
