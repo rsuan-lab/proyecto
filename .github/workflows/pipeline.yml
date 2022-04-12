@@ -3,7 +3,7 @@ name: pipeline test
 on:
   push:
     branches:
-      - master
+      - main
       - feature/*
     
 
@@ -15,7 +15,7 @@ env:
 jobs:
   build: 
     runs-on: ubuntu-latest
-    environment: master
+    environment: main
     steps: 
       - uses: actions/checkout@v2
       - name: printhola
@@ -26,7 +26,7 @@ jobs:
   unit-test: 
     runs-on: ubuntu-latest    
     needs: build
-    if: github.ref == 'refs/heads/master'
+    if: github.ref == 'refs/heads/main'
     steps:
       - uses: actions/checkout@v2
       - name: pruebas unitarias
