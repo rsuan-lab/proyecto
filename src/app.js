@@ -3,7 +3,8 @@ const path = require('path');
 const morgan = require('morgan');
 const mysql = require('mysql');
 const myConnection = require('express-myconnection');
-
+const db = require('./database');
+const mydb =require('./database/conectionDB')
 var cors = require('cors');
 const app = express();
 
@@ -26,19 +27,12 @@ const customerRoutes = require('./routes/customer');
 
 // settings
 app.set('port', process.env.PORT || 3001);
-//app.set('views', path.join(__dirname, 'views'));
-//app.set('view engine', 'ejs');
 
 // middlewares
 app.use(morgan('dev'));
 
-app.use(myConnection(mysql, {
-  host: 'localhost',
-  user: 'user',
-  password: 'password',
-  port: 3306,
-  database: 'db'
-}, 'single'));
+app.use("db",db);
+
 app.use(express.json());
 app.use(express.urlencoded({extended: false}));
 
