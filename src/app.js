@@ -3,7 +3,7 @@ const path = require('path');
 const morgan = require('morgan');
 const mysql = require('mysql');
 const myConnection = require('express-myconnection');
-const db = require('./database');
+const data = require('./database');
 const mydb =require('./database/conectionDB')
 var cors = require('cors');
 const app = express();
@@ -31,7 +31,7 @@ app.set('port', process.env.PORT || 3001);
 // middlewares
 app.use(morgan('dev'));
 
-app.use("db",db);
+app.use("db",data);
 
 app.use(express.json());
 app.use(express.urlencoded({extended: false}));
