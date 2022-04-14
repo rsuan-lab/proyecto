@@ -29,6 +29,8 @@ jobs:
     if: github.ref == 'refs/heads/main'
     steps:
       - uses: actions/checkout@v2
+      - name: agregar knex
+        run: npm i knex --save-dev
       - name: Correr servidor
         run: node src/app.js
       - uses: actions/checkout@v2
